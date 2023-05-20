@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css'
 function App() {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <ToastContainer />
       <Container className="my-2 ">
         <Outlet />
