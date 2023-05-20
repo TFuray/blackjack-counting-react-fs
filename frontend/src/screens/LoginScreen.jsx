@@ -1,15 +1,38 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button, Col, Form, Row } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { Link, useNavigate } from "react-router-dom"
 import FormConainter from "../components/FormContainer"
+import { setCredentials } from "../slices/authSlice"
+import { useLoginMutation } from "../slices/usersApiSlice"
+import { toast } from "react-toastify"
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const [login, { isLoading }] = useLoginMutation()
+
+  const { userInfo } = useSelector((state) => state.auth)
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/")
+    }
+  }, [navigate, userInfo])
+
   const submitHandler = async (e) => {
     e.preventDefault()
-    console.log("submit")
+    try {
+      const res = await login({ email, password }).unwrap()
+      dispatch(setCredentials({ ...res }))
+      navigate("/")
+    } catch (err) {
+      toast.error(err?.data?.message || err.error)
+    }
   }
 
   return (
@@ -24,6 +47,7 @@ const LoginScreen = () => {
           <Form.Control
             type="email"
             placeholder="Enter Email"
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
@@ -36,6 +60,7 @@ const LoginScreen = () => {
           <Form.Label>Password </Form.Label>
           <Form.Control
             type="password"
+            autoComplete="password"
             placeholder="Enter Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

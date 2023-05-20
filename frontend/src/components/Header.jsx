@@ -3,26 +3,26 @@ import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux"
 import { LinkContainer } from "react-router-bootstrap"
 import { useNavigate } from "react-router-dom"
-// import { logout } from "../slices/authSlice"
-// import { useLogoutMutation } from "../slices/usersApiSlice"
+import { logout } from "../slices/authSlice"
+import { useLogoutMutation } from "../slices/usersApiSlice"
 
 const Header = () => {
-  // const { userInfo } = useSelector((state) => state.auth)
+  const { userInfo } = useSelector((state) => state.auth)
 
-  // const dispatch = useDispatch()
-  // const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  // const [logoutApiCall] = useLogoutMutation()
+  const [logoutApiCall] = useLogoutMutation()
 
-  // const logoutHandler = async () => {
-  //   try {
-  //     await logoutApiCall().unwrap()
-  //     dispatch(logout())
-  //     navigate("/login")
-  //   } catch (err) {
-  //     console.error(err)
-  //   }
-  // }
+  const logoutHandler = async () => {
+    try {
+      await logoutApiCall().unwrap()
+      dispatch(logout())
+      navigate("/login")
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   return (
     <header>
