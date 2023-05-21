@@ -4,6 +4,7 @@ import connectDB from "./config/db.js"
 import cookieParser from "cookie-parser"
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js"
 import userRoutes from "./routes/userRoutes.js"
+import dogRoutes from './routes/dogRoutes.js'
 dotenv.config()
 const port = process.env.port || 5000
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 
 app.use("/api/users", userRoutes)
+app.use("/api/dog", dogRoutes)
 
 app.get("/", (req, res) => res.send("Server is Ready"))
 
