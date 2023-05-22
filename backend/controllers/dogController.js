@@ -25,7 +25,8 @@ const addDog = asyncHandler(async (req, res) => {
 // route    GET /api/dog
 // @access  private
 const getDogs = asyncHandler(async (req, res) => {
-  const dogs = await Dog.find({ user: req.user._id })
+  const dogs = await Dog.find({ user: req.user.name })
+  console.log(dogs)
   res.status(200).json(dogs)
 })
 

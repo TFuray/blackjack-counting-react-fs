@@ -1,7 +1,8 @@
-import { dogSlice } from "./apiSlice.js"
+import { apiSlice } from "./apiSlice.js"
+
 const DOG_URL = "/api/dog"
 
-export const dogApiSlice = dogSlice.injectEndpoints({
+export const dogApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     addDog: builder.mutation({
       query: (data) => ({
@@ -10,18 +11,13 @@ export const dogApiSlice = dogSlice.injectEndpoints({
         body: data,
       }),
     }),
-    getDogs: builder.mutation({
-      query: (data) => ({
-        url: `${DOG_URL}`,
-        method: "GET",
-        body: data,
-      }),
+    getDogs: builder.query({
+      query: ()=> DOG_URL
     }),
     getPost: builder.mutation({
-      query: (data) => ({
+      query: () => ({
         url: `${DOG_URL}/post`,
         method: "GET",
-        body: data,
       }),
     }),
     addPost: builder.mutation({
@@ -36,7 +32,7 @@ export const dogApiSlice = dogSlice.injectEndpoints({
 
 export const {
   useAddDogMutation,
-  useGetDogMutation,
+  useGetDogsQuery,
   useGetPostMutation,
   useAddPostMutation,
 } = dogApiSlice

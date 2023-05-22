@@ -4,12 +4,12 @@ const baseQuery = fetchBaseQuery({ baseUrl: "" })
 
 export const apiSlice = createApi({
   baseQuery,
-  tagTypes: ["User"],
+  tagTypes: ["User", "dog"],
   endpoints: (builder) => ({}),
 })
 
-export const dogSlice = createApi({
-  baseQuery,
-  tagTypes: ["Dog"],
-  endpoints: (builder) => ({}),
-})
+// export const dogSlice = createApi({
+//   baseQuery,
+//   tagTypes: ["Dog"],
+//   endpoints: (builder) => ({}),
+// })
