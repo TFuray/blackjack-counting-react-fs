@@ -15,7 +15,6 @@ import HomeScreen from "./screens/HomeScreen.jsx"
 import LoginScreen from "./screens/LoginScreen.jsx"
 import ProfileScreen from "./screens/ProfileScreen.jsx"
 import RegisterScreen from "./screens/Register.jsx"
-import AddDogScreen from "./screens/AddDogScreen.jsx"
 import store from "./store.js"
 
 const router = createBrowserRouter(
@@ -46,10 +45,6 @@ const router = createBrowserRouter(
         <Route
           path="/profile"
           element={<ProfileScreen />}
-        />
-        <Route
-          path="/adddog"
-          element={<AddDogScreen />}
         />
       </Route>
     </Route>
