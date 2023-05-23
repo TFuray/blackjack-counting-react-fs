@@ -1,5 +1,9 @@
 import express from "express"
-import { dealHand, drawOne, shuffleCards } from "../controllers/cardsController"
+import {
+  dealHand,
+  drawOne,
+  shuffleCards,
+} from "../controllers/cardsController.js"
 
 const router = express.Router()
 

@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const deckId = process.env.DECK_ID
+const deckId = "e8112km1zqho"
 const baseUrl = `https://deckofcardsapi.com/api/deck/${deckId}`
 
 const shuffleCards = async (req, res) => {
