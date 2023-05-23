@@ -3,8 +3,8 @@ import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa"
 import { useDispatch, useSelector } from "react-redux"
 import { LinkContainer } from "react-router-bootstrap"
 import { useNavigate } from "react-router-dom"
-import { logout } from "../slices/authSlice"
-import { useLogoutMutation } from "../slices/usersApiSlice"
+import { logout } from "../../slices/authSlice"
+import { useLogoutMutation } from "../../slices/usersApiSlice"
 
 const Header = () => {
   const { userInfo } = useSelector((state) => state.auth)

@@ -9,11 +9,12 @@ import {
   RouterProvider,
 } from "react-router-dom"
 import App from "./App.jsx"
-import PrivateRoute from "./components/PrivateRoute.jsx"
+import PrivateRoute from "./components/utils/PrivateRoute.jsx"
 import "./index.css"
 import HomeScreen from "./screens/HomeScreen.jsx"
 import LoginScreen from "./screens/LoginScreen.jsx"
 import ProfileScreen from "./screens/ProfileScreen.jsx"
+import CardGameScreen from "./screens/CardGameScreen.jsx"
 import RegisterScreen from "./screens/Register.jsx"
 import store from "./store.js"
 
@@ -45,6 +46,10 @@ const router = createBrowserRouter(
         <Route
           path="/profile"
           element={<ProfileScreen />}
+        />
+        <Route
+          path="/cardGame"
+          element={<CardGameScreen />}
         />
       </Route>
     </Route>

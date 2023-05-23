@@ -3,8 +3,8 @@ import { Button, Form } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
-import FormConainter from "../components/FormContainer"
-import Loader from "../components/Loader"
+import FormConainter from "../components/utils/FormContainer"
+import Loader from "../components/utils/Loader"
 import { setCredentials } from "../slices/authSlice"
 import { useUpdateUserMutation } from "../slices/usersApiSlice"
 
@@ -114,6 +114,10 @@ const ProfileScreen = () => {
         >
           Update
         </Button>
+        <Button variant="secondary"
+       className="mt-3 ml-8"
+
+        >Cancel</Button>
       </Form>
     </FormConainter>
   )

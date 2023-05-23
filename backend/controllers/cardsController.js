@@ -15,7 +15,7 @@ const shuffleCards = async (req, res) => {
 
 const dealHand = async (req, res) => {
   try {
-    const response = await axios.get(`${baseUrl}/draw?count=2`)
+    const response = await axios.get(`${baseUrl}/draw?count=4`)
     res.json(response.data)
   } catch (error) {
     console.error("Error retrieving deck:", error)
@@ -33,4 +33,4 @@ const drawOne = async (req, res) => {
   }
 }
 
-export { shuffleCards, dealHand, drawOne}
+export { dealHand, drawOne, shuffleCards }

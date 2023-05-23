@@ -2,11 +2,11 @@ import { useEffect, useState } from "react"
 import { Button, Col, Form, Row } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
-import FormConainter from "../components/FormContainer"
+import FormConainter from "../components/utils/FormContainer"
 import { setCredentials } from "../slices/authSlice"
 import { useLoginMutation } from "../slices/usersApiSlice"
 import { toast } from "react-toastify"
-import Loader from "../components/Loader"
+import Loader from "../components/utils/Loader"
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("")
