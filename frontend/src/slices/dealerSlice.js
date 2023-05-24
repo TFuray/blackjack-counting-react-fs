@@ -11,17 +11,17 @@ const dealerSlice = createSlice({
   initialState,
   reducers: {
     setDealerHand: (state, action) => {
-      state.dealerHand= action.payload
+      state.dealerHand = action.payload
       localStorage.setItem("dealerHand", JSON.stringify(action.payload))
     },
     // Clear local storage
     clearDealerHand: (state, action) => {
-      state.dealerHand= null
-      localStorage.removeItem("userInfo")
+      state.dealerHand = null
+      localStorage.removeItem("dealerHand")
     },
   },
 })
 
-export const { setDealerHand, clearDealerHand} = dealerSlice.actions
+export const { setDealerHand, clearDealerHand } = dealerSlice.actions
 
 export default dealerSlice.reducer

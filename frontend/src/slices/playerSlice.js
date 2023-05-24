@@ -17,7 +17,7 @@ const playerSlice = createSlice({
     // Clear local storage
     clearPlayerHand: (state, action) => {
       state.playerHand = null
-      localStorage.removeItem("userInfo")
+      localStorage.removeItem("playerHand")
     },
   },
 })
