@@ -3,13 +3,12 @@ import { useDispatch, useSelector } from "react-redux"
 
 const DisplayDealerCards = () => {
   const { dealerHand } = useSelector((state) => state.dealer)
-
-  const [dealerCards, setDealerCards] = useState(dealerHand)
   if (dealerHand) {
     return (
       <>
         <div className="flex justify-content-center">
           <div className="">
+            <p></p>
             <img
               className="h-36"
               src={dealerHand["0"]["images"]["png"]}
