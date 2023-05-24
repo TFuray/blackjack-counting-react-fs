@@ -17,17 +17,17 @@ const Hero = () => {
           Live Counting trainer coming soon
           </p>
           <div className="d-flex">
-            <LinkContainer to="/login">
+            <LinkContainer to="/cardgame">
               <Button
                 variant="primary"
                 className="me-3"
               >
-                Sign In
+               Play
               </Button>
             </LinkContainer>
-            <LinkContainer to="/register">
+            {/* <LinkContainer to="/register">
               <Button variant="secondary">Register</Button>
-            </LinkContainer>
+            </LinkContainer> */}
           </div>
         </Card>
       </Container>

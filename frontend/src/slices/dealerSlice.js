@@ -29,6 +29,13 @@ const dealerSlice = createSlice({
       localStorage.removeItem("dealerTotal")
     },
   },
+  // extraReducers: (builder) => {
+  //   builder.addCase(setDealerHand.fullfilled, (state, action) => {
+  //     const byId = action.payload.dealer.reduce((byId, dealer) => {
+  //       byId[dealer.dealerHand]
+  //     })
+  //   })
+  // }
 })
 
 export const { setDealerHand, clearDealerHand, setDealerTotal, clearDealerTotal } = dealerSlice.actions

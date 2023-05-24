@@ -13,24 +13,19 @@ const CardGameScreen = () => {
   const { dealerHand } = useSelector((state) => state.dealer)
   const { playerHand } = useSelector((state) => state.player)
 
-  // const calcTotal= (hand) => {
-  //   if (hand) {
-  //     const values = Object.values(hand).map((item) => item.value)
-  //     const updated = values.map((value) => {
-  //       if (value === "JACK" || "QUEEN" || "KING") {
-  //         return 10
-  //       } else if (value === "ACE") {
-  //         return 11
-  //       } else {
-  //         return Number.value
-  //       }
-  //     })
-  //     return updated.reduce((acc, curentVal) => acc + curentVal, 0)
-  //   } else {
-  //     return 0
-  //   }
-  // }
-
+  function convertToNum(val) {
+    if (val === "ACE") {
+      return 11
+    } else if (val === "KING") {
+      return 10
+    } else if (val === "QUEEN") {
+      return 10
+    } else if (val === "JACK") {
+      return 10
+    } else {
+      return Number(val)
+    }
+  }
   return (
     <>
       <TempClearBtn />
@@ -38,7 +33,9 @@ const CardGameScreen = () => {
         <DisplayDealerCards />
         <br />
         <br />
-        <DisplayPlayerCards />
+        <DisplayPlayerCards
+        convertToNum={convertToNum}
+        />
       </div>
       <DealButton />
       <ButtonBar />

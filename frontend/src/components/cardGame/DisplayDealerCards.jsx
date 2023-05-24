@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from "react-redux"
 
 const DisplayDealerCards = () => {
   const { dealerHand } = useSelector((state) => state.dealer)
+  const { dealerTotal } = useSelector((state) => state.dealer)
   if (dealerHand) {
     return (
       <>
-        <div className="flex justify-content-center">
-          <div className="">
-            <p></p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div className="col-span-1 md:col-span-2 justify-self-center">
+            <p className="text-3xl font-bold text-white">Total: {dealerTotal}</p>
+          </div>
+          <div className="flex-col justify-self-end">
             <img
               className="h-36"
               src={dealerHand["0"]["images"]["png"]}
@@ -19,7 +22,7 @@ const DisplayDealerCards = () => {
               <span> {dealerHand["0"]["suit"]}</span>
             </p>
           </div>
-          <div>
+          <div className="flex-col justify-self-start">
             <img
               className="h-36"
               src={dealerHand["1"]["images"]["png"]}

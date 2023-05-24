@@ -1,34 +1,17 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useDealHandQuery } from "../../slices/cardsApiSlice"
-import { setDealerHand } from "../../slices/dealerSlice"
-import { setPlayerHand } from "../../slices/playerSlice"
-import { clearDealerTotal, setDealerTotal } from "../../slices/dealerSlice"
+import {
+  clearDealerTotal,
+  setDealerHand,
+  setDealerTotal,
+} from "../../slices/dealerSlice"
+import { setPlayerHand, setPlayerTotal } from "../../slices/playerSlice"
 import Loader from "../utils/Loader.jsx"
 
 const DealButton = () => {
   const dispatch = useDispatch()
   const { data, isLoading } = useDealHandQuery()
 
-  // const { dealerHand } = useSelector((state) => state.dealer)
-  // const { playerHand } = useSelector((state) => state.player)
-  // const {dealerTotal} = useSelector((state)=> state.dealer )
-  // const calcTotal = (hand) => {
-  //   if (hand) {
-  //     const values = Object.values(hand).map((item) => item.value)
-  //     const updated = values.map((value) => {
-  //       if (value === "JACK" || "QUEEN" || "KING") {
-  //         return 10
-  //       } else if (value === "ACE") {
-  //         return 11
-  //       } else {
-  //         return Number.value
-  //       }
-  //     })
-  //     return updated.reduce((acc, curentVal) => acc + curentVal, 0)
-  //   } else {
-  //     return 0
-  //   }
-  // }
   const handleClick = async () => {
     if (isLoading) {
       return <Loader />
@@ -37,9 +20,40 @@ const DealButton = () => {
     cards = cards.map((el) => el)
     let player = cards.slice(0, 2)
     let dealer = cards.slice(2)
+
+    let dealerTotal = dealer.map((data) => {
+      if (data.value === "ACE") {
+        return 11
+      } else if (data.value === "KING") {
+        return 10
+      } else if (data.value === "QUEEN") {
+        return 10
+      } else if (data.value === "JACK") {
+        return 10
+      } else {
+        return Number(data.value)
+      }
+    })
+    let playerTotal = player.map((data) => {
+      if (data.value === "ACE") {
+        return 11
+      } else if (data.value === "KING") {
+        return 10
+      } else if (data.value === "QUEEN") {
+        return 10
+      } else if (data.value === "JACK") {
+        return 10
+      } else {
+        return Number(data.value)
+      }
+    })
+    let tempPlayer = playerTotal.reduce((acc, val) => acc + val, 0)
+    let tempTotal = dealerTotal.reduce((acc, val) => acc + val, 0)
     dispatch(setDealerHand({ ...dealer }))
     dispatch(setPlayerHand({ ...player }))
-    }
+    dispatch(setDealerTotal(tempTotal))
+    dispatch(setPlayerTotal(tempPlayer))
+  }
 
   return (
     <>
