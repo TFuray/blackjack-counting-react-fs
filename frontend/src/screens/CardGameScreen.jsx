@@ -29,7 +29,7 @@ const CardGameScreen = () => {
   return (
     <>
       <TempClearBtn />
-      <div className="rounded-pill bg-green-800 w-5/6 py-24">
+      <div className="rounded-full bg-green-800 w-5/6 py-24">
         <DisplayDealerCards />
         <br />
         <br />

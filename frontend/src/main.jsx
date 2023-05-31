@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css"
 import React from "react"
 import ReactDOM from "react-dom/client"
 import { Provider } from "react-redux"
@@ -11,10 +10,10 @@ import {
 import App from "./App.jsx"
 import PrivateRoute from "./components/utils/PrivateRoute.jsx"
 import "./index.css"
+import CardGameScreen from "./screens/CardGameScreen.jsx"
 import HomeScreen from "./screens/HomeScreen.jsx"
 import LoginScreen from "./screens/LoginScreen.jsx"
 import ProfileScreen from "./screens/ProfileScreen.jsx"
-import CardGameScreen from "./screens/CardGameScreen.jsx"
 import RegisterScreen from "./screens/Register.jsx"
 import store from "./store.js"
 
