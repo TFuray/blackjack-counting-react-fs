@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const deckId = "82ht8sv6z30i"
+const deckId = "uvqxjozsb08l"
 const baseUrl = `https://deckofcardsapi.com/api/deck/${deckId}`
 
 const shuffleCards = async (req, res) => {
@@ -32,5 +32,6 @@ const drawOne = async (req, res) => {
     res.status(500).json({ error: "Failed to retrieve deck" })
   }
 }
+
 
 export { dealHand, drawOne, shuffleCards }

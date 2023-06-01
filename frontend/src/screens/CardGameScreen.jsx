@@ -13,6 +13,8 @@ const CardGameScreen = () => {
   const { dealerHand } = useSelector((state) => state.dealer)
   const { playerHand } = useSelector((state) => state.player)
 
+  const [playerTurn, setPlayerTurn] = useState(true)
+
   function convertToNum(val) {
     if (val === "ACE") {
       return 11
@@ -30,11 +32,14 @@ const CardGameScreen = () => {
     <>
       <TempClearBtn />
       <div className="rounded-full bg-green-800 w-5/6 py-24">
-        <DisplayDealerCards />
+        <DisplayDealerCards
+        playerTurn={playerTurn}
+        />
         <br />
         <br />
         <DisplayPlayerCards
         convertToNum={convertToNum}
+        setPlayerTurn={setPlayerTurn}
         />
       </div>
       <DealButton />
