@@ -49,8 +49,8 @@ const DealButton = () => {
     })
     let tempPlayer = playerTotal.reduce((acc, val) => acc + val, 0)
     let tempTotal = dealerTotal.reduce((acc, val) => acc + val, 0)
-    dispatch(setDealerHand({ ...dealer }))
-    dispatch(setPlayerHand({ ...player }))
+    dispatch(setDealerHand(dealer))
+    dispatch(setPlayerHand(player))
     dispatch(setDealerTotal(tempTotal))
     dispatch(setPlayerTotal(tempPlayer))
   }

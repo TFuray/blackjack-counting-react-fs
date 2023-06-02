@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
-const DisplayPlayerCards = ({convertToNum}) => {
+const DisplayPlayerCards = ({convertToNum, setPlayerTurn, playerTurn}) => {
   const { playerHand } = useSelector((state) => state.player)
   const {playerTotal} =useSelector((state) => state.player)
+
+  const handleTurn = () => {
+    setPlayerTurn({... !playerTurn})
+  }
 
   if (playerHand) {
     return (
@@ -35,6 +39,18 @@ const DisplayPlayerCards = ({convertToNum}) => {
               {playerHand["1"]["value"]}
               <span> {playerHand["1"]["suit"]}</span>
             </p>
+          </div>
+
+          <div>
+            {playerHand.map((card) => (
+              <div key={card.code} className="flex-col justify-self-end">
+                <img
+                  className="h-36"
+                  src={card.image}
+                  alt=""
+                />
+              </div>
+            ))}
           </div>
         </div>
       </>

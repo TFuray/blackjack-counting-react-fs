@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const deckId = "uvqxjozsb08l"
+const deckId = "rxvjile4nncc"
 const baseUrl = `https://deckofcardsapi.com/api/deck/${deckId}`
 
 const shuffleCards = async (req, res) => {
