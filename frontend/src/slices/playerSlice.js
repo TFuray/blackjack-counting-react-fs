@@ -7,6 +7,9 @@ const initialState = {
   playerTotal: localStorage.getItem("playerTotal")
     ? JSON.parse(localStorage.getItem("playerTotal"))
     : null,
+  playerTurn: localStorage.getItem("playerTurn")
+    ? JSON.parse(localStorage.getItem("playerTurn"))
+    : true,
 }
 
 const playerSlice = createSlice({
@@ -34,6 +37,14 @@ const playerSlice = createSlice({
       state.playerTotal = null
       localStorage.removeItem("playerTotal")
     },
+    setPlayerTurn: (state, action) => {
+      state.playerTurn = true
+      localStorage.setItem("playerTurn", true )
+    },
+    setDealerTurn: (state, action) => {
+      state.playerTurn = false
+      localStorage.setItem("playerTurn", false)
+    },
   },
 })
 
@@ -43,6 +54,8 @@ export const {
   setPlayerTotal,
   clearPlayerTotal,
   addCardToHand,
+  setPlayerTurn,
+  setDealerTurn,
 } = playerSlice.actions
 
 export default playerSlice.reducer

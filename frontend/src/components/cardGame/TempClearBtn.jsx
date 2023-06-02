@@ -5,34 +5,18 @@ import { useShuffleCardsQuery } from "../../slices/cardsApiSlice"
 
 const TempClearBtn = () => {
   const dispatch = useDispatch()
-  const handleClickOne = () => {
+
+  const handleClick = () => {
     dispatch(clearDealerHand())
-  }
-  const handleClickTwo = () => {
     dispatch(clearPlayerHand())
-  }
-  const handleClickThree = () => {
-    dispatch(useShuffleCardsQuery())
   }
   return (
     <>
       <button
-        onClick={handleClickOne}
+        onClick={handleClick}
         className="btn btn-warning mr-3"
       >
-        Dealer ClearBtn
-      </button>
-      <button
-        onClick={handleClickTwo}
-        className="btn bg-red-600 text-white"
-      >
-        Player ClearBtn
-      </button>
-      <button
-        onClick={handleClickThree}
-        className="btn bg-purple-600 text-white"
-      >
-      Shuffle Temp
+      Clear Table
       </button>
     </>
   )
