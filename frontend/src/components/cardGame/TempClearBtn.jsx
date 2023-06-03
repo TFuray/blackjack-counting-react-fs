@@ -1,7 +1,11 @@
 import { useDispatch } from "react-redux"
-import { clearDealerHand } from "../../slices/dealerSlice"
-import { clearPlayerHand } from "../../slices/playerSlice"
 import { useShuffleCardsQuery } from "../../slices/cardsApiSlice"
+import { clearDealerHand, clearDealerTotal } from "../../slices/dealerSlice"
+import {
+  clearPlayerHand,
+  clearPlayerTotal,
+  setPlayerTurn,
+} from "../../slices/playerSlice"
 
 const TempClearBtn = () => {
   const dispatch = useDispatch()
@@ -9,6 +13,9 @@ const TempClearBtn = () => {
   const handleClick = () => {
     dispatch(clearDealerHand())
     dispatch(clearPlayerHand())
+    dispatch(clearDealerTotal())
+    dispatch(clearPlayerTotal())
+    dispatch(setPlayerTurn())
   }
   return (
     <>
@@ -16,7 +23,7 @@ const TempClearBtn = () => {
         onClick={handleClick}
         className="btn btn-warning mr-3"
       >
-      Clear Table
+        Clear Table
       </button>
     </>
   )

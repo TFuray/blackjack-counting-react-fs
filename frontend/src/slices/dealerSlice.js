@@ -15,9 +15,13 @@ const dealerSlice = createSlice({
       state.dealerHand = action.payload
       localStorage.setItem("dealerHand", JSON.stringify(action.payload))
     },
+    addCardToHand: (state, action) => {
+      state.dealerHand.push(action.payload)
+      localStorage.setItem("dealerHand", JSON.stringify(state.dealerHand))
+    },
     setDealerTotal: (state, action) => {
       state.dealerTotal = action.payload
-      localStorage.setItem('dealerTotal',JSON.stringify(action.payload))
+      localStorage.setItem("dealerTotal", JSON.stringify(action.payload))
     },
     // Clear local storage
     clearDealerHand: (state, action) => {
@@ -25,19 +29,12 @@ const dealerSlice = createSlice({
       localStorage.removeItem("dealerHand")
     },
     clearDealerTotal: (state, action) => {
-      state.dealerTotal= null
+      state.dealerTotal = null
       localStorage.removeItem("dealerTotal")
     },
   },
-  // extraReducers: (builder) => {
-  //   builder.addCase(setDealerHand.fullfilled, (state, action) => {
-  //     const byId = action.payload.dealer.reduce((byId, dealer) => {
-  //       byId[dealer.dealerHand]
-  //     })
-  //   })
-  // }
 })
 
-export const { setDealerHand, clearDealerHand, setDealerTotal, clearDealerTotal } = dealerSlice.actions
+export const { setDealerHand, clearDealerHand, setDealerTotal, clearDealerTotal, addCardToHand } = dealerSlice.actions
 
 export default dealerSlice.reducer

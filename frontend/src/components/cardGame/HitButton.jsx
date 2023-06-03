@@ -17,7 +17,6 @@ const HitButton = () => {
     if (isLoading) {
       return <Loader />
     } else if (isSuccess) {
-      console.log(isSuccess)
       return dispatch(addCardToHand(data.cards[0]))
     }
     // dispatch(addCardToHand(data.cards[0]))
@@ -46,7 +45,7 @@ const HitButton = () => {
   return (
     <button
       onClick={handleClick}
-      className="btn btn-square text-white bg-green-600 w-16 outline hover:outline-orange-600 hover:bg-green-900   "
+      className="btn btn-square text-white bg-green-600 w-16 outline hover:outline-green-500 hover:bg-green-900   "
     >
       Hit
     </button>

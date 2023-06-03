@@ -20,7 +20,7 @@ const DisplayPlayerCards = () => {
               </p>
             ) : (
               <div>
-                <p className="text-3xl font-bold text-white">Bust</p>
+                <p className="text-3xl font-bold text-red-600 drop-shadow-2xl font-outline">Bust: {playerTotal}</p>
                 <TempClearBtn />
               </div>
             )}

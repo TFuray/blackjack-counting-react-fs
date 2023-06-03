@@ -19,7 +19,7 @@ const CardGameScreen = () => {
 
   return (
     <>
-      <div className="rounded-full bg-green-800 w-5/6 py-24 shadow-2xl border-8 border-rose-900">
+      <div className="rounded-full bg-green-800 w-5/6 h-128 py-24 shadow-2xl border-8 border-rose-900">
         <DisplayDealerCards playerTurn={playerTurn} />
         <br />
         <br />
