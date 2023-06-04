@@ -9,17 +9,16 @@ const HitButton = () => {
   const dispatch = useDispatch()
 
   const { playerHand } = useSelector((state) => state.player)
-  const [trigger, { data, isSuccess, isLoading }] =
-    apiSlice.endpoints.drawOne.useLazyQuery()
+  // const [trigger, { data, isSuccess, isLoading }] =
+  //   apiSlice.endpoints.drawOne.useLazyQuery()
+  const { data, isLoading, isSuccess } = useDrawOneQuery()
 
   const handleClick = () => {
-    trigger()
     if (isLoading) {
       return <Loader />
     } else if (isSuccess) {
       return dispatch(addCardToHand(data.cards[0]))
     }
-    // dispatch(addCardToHand(data.cards[0]))
   }
 
   const calcTotal = () => {

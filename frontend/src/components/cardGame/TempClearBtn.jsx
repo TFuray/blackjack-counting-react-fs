@@ -6,6 +6,7 @@ import {
   clearPlayerTotal,
   setPlayerTurn,
 } from "../../slices/playerSlice"
+import { apiSlice } from "../../slices/apiSlice"
 
 const TempClearBtn = () => {
   const dispatch = useDispatch()
@@ -16,6 +17,7 @@ const TempClearBtn = () => {
     dispatch(clearDealerTotal())
     dispatch(clearPlayerTotal())
     dispatch(setPlayerTurn())
+    dispatch(apiSlice.util.resetApiState())
   }
   return (
     <>

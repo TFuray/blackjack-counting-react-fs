@@ -13,8 +13,18 @@ export const cardsApiSlice = apiSlice.injectEndpoints({
     drawOne: builder.query({
       query: () => `${CARD_URL}`,
     }),
+    // drawOne: builder.mutation({
+    //   query: () => ({
+    //     url: `${CARD_URL}`,
+    //     method: "POST",
+    //   }),
+    // }),
   }),
 })
 
-export const { useShuffleCardsQuery, useDealHandQuery, useDrawOneQuery } =
-  cardsApiSlice
+export const {
+  useShuffleCardsQuery,
+  useDealHandQuery,
+  useDrawOneQuery,
+  useDrawOneMutation,
+} = cardsApiSlice
