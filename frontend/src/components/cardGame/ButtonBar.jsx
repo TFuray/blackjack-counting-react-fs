@@ -1,13 +1,13 @@
 import HitButton from "./HitButton"
 import StayButton from "./StayButton"
 
-const ButtonBar = ({hitDealer}) => {
+const ButtonBar = () => {
   return (
     <>
       <nav className=" flex justify-around p-2 rounded-full w-96 border-2 bg-slate-700">
         <HitButton />
         <StayButton
-        hitDealer={hitDealer}
+
         />
         {/* <button
           className="btn flex bg-red-600 text-white "

@@ -2,10 +2,10 @@ import { useDispatch, useSelector } from "react-redux"
 import Loader from "../utils/Loader"
 import { setDealerTurn } from "../../slices/playerSlice"
 
-const StayButton = ({hitDealer}) => {
+const StayButton = () => {
   const dispatch = useDispatch()
   const handleClick = () => {
-    return dispatch(setDealerTurn()) && hitDealer()
+    return dispatch(setDealerTurn())
   }
   return (
     <button

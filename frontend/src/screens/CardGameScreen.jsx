@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import ButtonBar from "../components/cardGame/ButtonBar"
 import DealButton from "../components/cardGame/DealButton"
@@ -24,6 +24,7 @@ const CardGameScreen = () => {
 
   const calcDealerTotal = () => {
     let tempDealerTotal = dealerHand.map((data) => {
+      console.log(data)
       if (data.value === "ACE") {
         return 11
       } else if (data.value === "KING") {
@@ -38,17 +39,38 @@ const CardGameScreen = () => {
     })
     let tempTotal = tempDealerTotal.reduce((acc, val) => acc + val, 0)
     console.log(tempTotal)
-    // dispatch(setDealerTotal(tempTotal))
+    dispatch(setDealerTotal(tempTotal))
   }
 
-  const hitDealer = () => {
-    if (dealerTotal < 17) {
-      dispatch(addCardToHand(data.cards[0]))
-      calcDealerTotal()
-      dispatch(apiSlice.util.resetApiState())
-      // hitDealer()
-    }
+  const hitDealer = async () => {
+    dispatch(addCardToHand(data.cards[0]))
+    calcDealerTotal()
+    dispatch(apiSlice.util.resetApiState())
   }
+
+  if (!playerTurn) {
+    useEffect(() => {
+      if (dealerTotal < 17) {
+        hitDealer()
+      }
+    }, [dealerTotal])
+  }
+
+  // const checkDealerTotal = () => {
+  //   console.log(dealerTotal)
+  //   // calcDealerTotal()
+  //   while (dealerTotal < 17) {
+  //     hitDealer()
+  //   }
+  // }
+
+  // const hitDealer = () => {
+
+  //     dispatch(addCardToHand(data.cards[0]))
+  //     calcDealerTotal()
+  //     dispatch(apiSlice.util.resetApiState())
+
+  // }
 
   // while (dealerTotal < 17) {
   //   hitDealer()
@@ -62,9 +84,15 @@ const CardGameScreen = () => {
         <br />
         <DisplayPlayerCards />
       </div>
+      <button
+        onClick={() => calcDealerTotal()}
+        className="btn btn-circle"
+      >
+        calc dealer total
+      </button>
       <DealButton />
       <TempClearBtn />
-      <ButtonBar hitDealer={hitDealer} />
+      <ButtonBar />
     </>
   )
 }
