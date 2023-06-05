@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { apiSlice } from "../../../store/slices/api/apiSlice"
-import { addCardToHand } from "../../../store/slices/dealer/dealerSlice"
-import Loader from "../../../utils/Loader"
-import playingCardBack from "../../assets/playingCardBack.svg"
+import { apiSlice } from "@slices/api/apiSlice"
+import { addCardToHand } from "@slices/dealer/dealerSlice"
+import Loader from "@utils/Loader"
+import playingCardBack from "@assets/playingCardBack.svg"
 
 const DisplayDealerCards = () => {
   const dispatch = useDispatch()

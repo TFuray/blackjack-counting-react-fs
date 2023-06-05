@@ -1,15 +1,12 @@
-import { useDispatch, useSelector } from "react-redux"
-import { useDealHandQuery } from "../../../../store/slices/api/cards/cardsApiSlice"
+import { useDealHandQuery } from "@store/slices/api/cards/cardsApiSlice"
 import {
   clearDealerTotal,
   setDealerHand,
   setDealerTotal,
-} from "../../../../store/slices/dealer/dealerSlice"
-import {
-  setPlayerHand,
-  setPlayerTotal,
-} from "../../../../store/slices/player/playerSlice"
-import Loader from "../../../../utils/Loader.jsx"
+} from "@store/slices/dealer/dealerSlice"
+import { setPlayerHand, setPlayerTotal } from "@store/slices/player/playerSlice"
+import Loader from "@utils/Loader.jsx"
+import { useDispatch, useSelector } from "react-redux"
 
 const DealButton = () => {
   const dispatch = useDispatch()

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setPlayerTotal } from "../../../store/slices/player/playerSlice"
-import Loader from "../../../utils/Loader"
-import TempClearBtn from "../buttons/TempClearBtn"
+import { setPlayerTotal } from "@slices/player/playerSlice"
+import Loader from "@utils/Loader"
+import TempClearBtn from "@views/cardGame/buttons/TempClearBtn"
 
 const DisplayPlayerCards = () => {
   const { playerHand } = useSelector((state) => state.player)

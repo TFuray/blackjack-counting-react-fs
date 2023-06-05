@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { apiSlice } from "./slices/api/apiSlice.js"
-import authReducer from "./slices/auth/authSlice.js"
-import dealerReducer from "./slices/dealer/dealerSlice.js"
-import playerReducer from "./slices/player/playerSlice.js"
+import { apiSlice } from "@store/slices/api/apiSlice.js"
+import authReducer from "@store/slices/auth/authSlice.js"
+import dealerReducer from "@store/slices/dealer/dealerSlice.js"
+import playerReducer from "@store/slices/player/playerSlice.js"
 
 const store = configureStore({
   reducer: {

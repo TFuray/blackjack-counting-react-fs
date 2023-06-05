@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
-import Loader from "../components/Loader.jsx"
+import Loader from "@components/Loader.jsx"
 import {
   useDealHandQuery,
   useDrawOneQuery,
   useShuffleCardsQuery,
-} from "../store/slices/api/cards/cardsApiSlice.js"
+} from "@store/slices/api/cards/cardsApiSlice.js"
 
 let testHand = () => {
   let [hand, setHand] = useState([])

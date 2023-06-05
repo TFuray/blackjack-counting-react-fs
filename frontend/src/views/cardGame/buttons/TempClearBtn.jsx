@@ -1,15 +1,15 @@
 import { useDispatch } from "react-redux"
-import { apiSlice } from "../../../store/slices/api/apiSlice"
-import { useShuffleCardsQuery } from "../../../store/slices/api/cards/cardsApiSlice"
+import { apiSlice } from "@slices/api/apiSlice"
+import { useShuffleCardsQuery } from "@slices/api/cards/cardsApiSlice"
 import {
   clearDealerHand,
   clearDealerTotal,
-} from "../../../store/slices/dealer/dealerSlice"
+} from "@slices/dealer/dealerSlice"
 import {
   clearPlayerHand,
   clearPlayerTotal,
   setPlayerTurn,
-} from "../../../store/slices/player/playerSlice"
+} from "@slices/player/playerSlice"
 
 const TempClearBtn = () => {
   const dispatch = useDispatch()

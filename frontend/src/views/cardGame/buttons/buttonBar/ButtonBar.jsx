@@ -1,14 +1,12 @@
-import HitButton from "../../../../components/cardGame/HitButton"
-import StayButton from "../../../../components/cardGame/StayButton"
+import HitButton from "@views/cardGame/buttons/buttonBar/HitButton"
+import StayButton from "@views/cardGame/buttons/buttonBar/StayButton"
 
 const ButtonBar = () => {
   return (
     <>
       <nav className=" flex justify-around p-2 rounded-full w-96 border-2 bg-slate-700">
         <HitButton />
-        <StayButton
-
-        />
+        <StayButton />
         {/* <button
           className="btn flex bg-red-600 text-white "
           onClick={() => handleTurn}

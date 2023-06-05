@@ -3,10 +3,10 @@ import { Button, Form } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
-import { setCredentials } from "../../../store/slices/auth/authSlice"
-import { useUpdateUserMutation } from "../../../store/slices/users/usersApiSlice"
-import FormConainter from "../../../utils/FormContainer"
-import Loader from "../../../utils/Loader"
+import { setCredentials } from "../../store/slices/auth/authSlice"
+import { useUpdateUserMutation } from "../../store/slices/users/usersApiSlice"
+import FormConainter from "../../utils/FormContainer"
+import Loader from "../../utils/Loader"
 
 const ProfileScreen = () => {
   const [name, setName] = useState("")

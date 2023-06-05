@@ -12,9 +12,9 @@ import "./index.css"
 import store from "./store/store.js"
 import PrivateRoute from "./utils/PrivateRoute.jsx"
 import CardGameScreen from "./views/cardGame/CardGameScreen.jsx"
-import HomeScreen from "./views/home/homePage/HomeScreen.jsx"
-import ProfileScreen from "./views/home/profilePage/ProfileScreen.jsx"
+import HomeScreen from "./views/home/HomeScreen.jsx"
 import LoginScreen from "./views/login/LoginScreen.jsx"
+import ProfileScreen from "./views/profile/ProfileScreen.jsx"
 import RegisterScreen from "./views/register/RegisterScreen.jsx"
 
 const router = createBrowserRouter(

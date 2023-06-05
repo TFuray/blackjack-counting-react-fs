@@ -1,19 +1,16 @@
-import ButtonBar from "@components/cardGame/ButtonBar"
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { apiSlice } from "../../store/slices/api/apiSlice"
+import ButtonBar from "@views/cardGame/buttons/buttonBar/ButtonBar"
+import { apiSlice } from "@slices/api/apiSlice"
 import {
   useDrawOneMutation,
   useDrawOneQuery,
-} from "../../store/slices/api/cards/cardsApiSlice"
-import {
-  addCardToHand,
-  setDealerTotal,
-} from "../../store/slices/dealer/dealerSlice"
-import TempClearBtn from "./buttons/TempClearBtn"
-import DealButton from "./buttons/buttonBar/DealButton"
-import DisplayDealerCards from "./dealerHand/DisplayDealerCards"
-import DisplayPlayerCards from "./playerHand/DisplayPlayerCards"
+} from "@slices/api/cards/cardsApiSlice"
+import { addCardToHand, setDealerTotal } from "@slices/dealer/dealerSlice"
+import TempClearBtn from "@views/cardGame/buttons/TempClearBtn"
+import DisplayDealerCards from "@views/cardGame/dealerHand/DisplayDealerCards"
+import DisplayPlayerCards from "@views/cardGame/playerHand/DisplayPlayerCards"
+import DealButton from "@views/cardGame/buttons/buttonBar/DealButton"
+import { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 
 const CardGameScreen = () => {
   const { playerTotal } = useSelector((state) => state.player)

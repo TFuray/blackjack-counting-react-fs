@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { apiSlice } from "../../store/slices/apiSlice"
-import { useDrawOneQuery } from "../../store/slices/cardsApiSlice"
-import { addCardToHand, setPlayerTotal } from "../../store/slices/playerSlice"
-import Loader from "../../utils/Loader"
+import { apiSlice } from "@store/slices/api/apiSlice"
+import { useDrawOneQuery } from "@store/slices/api/cards/cardsApiSlice"
+import { addCardToHand, setPlayerTotal } from "@store/slices/player/playerSlice"
+import Loader from "@utils/Loader"
 
 const HitButton = () => {
   const dispatch = useDispatch()

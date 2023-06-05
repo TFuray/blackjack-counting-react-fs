@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import Hero from "../../../utils/Hero.jsx"
+import Hero from "../../components/hero/Hero.jsx"
 
 const HomeScreen = () => {
   return (
