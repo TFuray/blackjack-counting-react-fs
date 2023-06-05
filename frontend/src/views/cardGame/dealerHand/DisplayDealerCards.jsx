@@ -1,35 +1,10 @@
-import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { apiSlice } from "@slices/api/apiSlice"
-import { addCardToHand } from "@slices/dealer/dealerSlice"
-import Loader from "@utils/Loader"
 import playingCardBack from "@assets/playingCardBack.svg"
+import { useSelector } from "react-redux"
 
 const DisplayDealerCards = () => {
-  const dispatch = useDispatch()
-
   const { dealerHand } = useSelector((state) => state.dealer)
   const { dealerTotal } = useSelector((state) => state.dealer)
   const { playerTurn } = useSelector((state) => state.player)
-
-  const [trigger, { data }] = apiSlice.endpoints.drawOne.useLazyQuery()
-
-  // const hitDealer = async () => {
-  //   await trigger()
-  //   dispatch(addCardToHand(data.cards[0]))
-  // }
-
-  // while (dealerTotal < 17) {
-  //   hitDealer()
-  // }
-
-  // useEffect(() => {
-  //   if (!playerTurn) {
-  //     if (dealerTotal < 17) {
-  //       hitDealer()
-  //     }
-  //   }
-  // }, [dealerTotal])
 
   if (dealerHand) {
     return (

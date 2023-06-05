@@ -1,16 +1,19 @@
 import { useDealHandQuery } from "@store/slices/api/cards/cardsApiSlice"
 import {
-  clearDealerTotal,
   setDealerHand,
   setDealerTotal,
 } from "@store/slices/dealer/dealerSlice"
 import { setPlayerHand, setPlayerTotal } from "@store/slices/player/playerSlice"
 import Loader from "@utils/Loader.jsx"
 import { useDispatch, useSelector } from "react-redux"
+import { calcTotal } from "../../utils/calcTotal/calcTotal"
 
 const DealButton = () => {
   const dispatch = useDispatch()
   const { data, isLoading } = useDealHandQuery()
+
+  const { playerHand } = useSelector((state) => state.player)
+  const { dealerHand } = useSelector((state) => state.dealer)
 
   const handleClick = async () => {
     if (isLoading) {
@@ -21,38 +24,10 @@ const DealButton = () => {
     let player = cards.slice(0, 2)
     let dealer = cards.slice(2)
 
-    let dealerTotal = dealer.map((data) => {
-      if (data.value === "ACE") {
-        return 11
-      } else if (data.value === "KING") {
-        return 10
-      } else if (data.value === "QUEEN") {
-        return 10
-      } else if (data.value === "JACK") {
-        return 10
-      } else {
-        return Number(data.value)
-      }
-    })
-    let playerTotal = player.map((data) => {
-      if (data.value === "ACE") {
-        return 11
-      } else if (data.value === "KING") {
-        return 10
-      } else if (data.value === "QUEEN") {
-        return 10
-      } else if (data.value === "JACK") {
-        return 10
-      } else {
-        return Number(data.value)
-      }
-    })
-    let tempPlayer = playerTotal.reduce((acc, val) => acc + val, 0)
-    let tempTotal = dealerTotal.reduce((acc, val) => acc + val, 0)
     dispatch(setDealerHand(dealer))
     dispatch(setPlayerHand(player))
-    dispatch(setDealerTotal(tempTotal))
-    dispatch(setPlayerTotal(tempPlayer))
+    calcTotal(dealerHand, dispatch, setDealerTotal)
+    calcTotal(playerHand, dispatch, setPlayerTotal)
   }
 
   return (
