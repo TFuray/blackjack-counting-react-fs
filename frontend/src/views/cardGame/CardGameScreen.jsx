@@ -1,4 +1,3 @@
-import ButtonBar from "@views/cardGame/buttons/buttonBar/ButtonBar"
 import { apiSlice } from "@slices/api/apiSlice"
 import {
   useDrawOneMutation,
@@ -6,9 +5,10 @@ import {
 } from "@slices/api/cards/cardsApiSlice"
 import { addCardToHand, setDealerTotal } from "@slices/dealer/dealerSlice"
 import TempClearBtn from "@views/cardGame/buttons/TempClearBtn"
+import ButtonBar from "@views/cardGame/buttons/buttonBar/ButtonBar"
+import DealButton from "@views/cardGame/buttons/buttonBar/DealButton"
 import DisplayDealerCards from "@views/cardGame/dealerHand/DisplayDealerCards"
 import DisplayPlayerCards from "@views/cardGame/playerHand/DisplayPlayerCards"
-import DealButton from "@views/cardGame/buttons/buttonBar/DealButton"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
@@ -23,11 +23,9 @@ const CardGameScreen = () => {
 
   const { data } = useDrawOneQuery()
 
-  // const [trigger, { data }] = apiSlice.endpoints.drawOne.useLazyQuery()
 
   const calcDealerTotal = () => {
     let tempDealerTotal = dealerHand.map((data) => {
-      console.log(data)
       if (data.value === "ACE") {
         return 11
       } else if (data.value === "KING") {
@@ -41,7 +39,6 @@ const CardGameScreen = () => {
       }
     })
     let tempTotal = tempDealerTotal.reduce((acc, val) => acc + val, 0)
-    console.log(tempTotal)
     dispatch(setDealerTotal(tempTotal))
   }
 
@@ -52,32 +49,11 @@ const CardGameScreen = () => {
   }
 
   if (!playerTurn) {
-    useEffect(() => {
-      if (dealerTotal < 17) {
-        hitDealer()
-      }
-    }, [dealerTotal])
+    calcDealerTotal()
+    if (dealerTotal < 17) {
+      hitDealer()
+    }
   }
-
-  // const checkDealerTotal = () => {
-  //   console.log(dealerTotal)
-  //   // calcDealerTotal()
-  //   while (dealerTotal < 17) {
-  //     hitDealer()
-  //   }
-  // }
-
-  // const hitDealer = () => {
-
-  //     dispatch(addCardToHand(data.cards[0]))
-  //     calcDealerTotal()
-  //     dispatch(apiSlice.util.resetApiState())
-
-  // }
-
-  // while (dealerTotal < 17) {
-  //   hitDealer()
-  // }
 
   return (
     <>
@@ -87,12 +63,6 @@ const CardGameScreen = () => {
         <br />
         <DisplayPlayerCards />
       </div>
-      <button
-        onClick={() => calcDealerTotal()}
-        className="btn btn-circle"
-      >
-        calc dealer total
-      </button>
       <DealButton />
       <TempClearBtn />
       <ButtonBar />
