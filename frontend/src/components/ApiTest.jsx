@@ -5,7 +5,7 @@ import {
   useDealHandQuery,
   useDrawOneQuery,
   useShuffleCardsQuery,
-} from "../slices/cardsApiSlice"
+} from "../store/slices/api/cards/cardsApiSlice.js"
 
 let testHand = () => {
   let [hand, setHand] = useState([])
@@ -19,18 +19,20 @@ let testHand = () => {
   } = useDealHandQuery()
 
   if (isLoading) {
-    <Loader />
+    ;<Loader />
   } else if (isSuccess) {
     setHand(deal)
     console.log(hand)
   } else if (isError) {
-    <>{error.toString()}</>
+    ;<>{error.toString()}</>
   }
-  return <ul>
-    {hand.map((card) => (
-      <li>card.</li>
-    ))}
-  </ul>
+  return (
+    <ul>
+      {hand.map((card) => (
+        <li>card.</li>
+      ))}
+    </ul>
+  )
 }
 
 const ApiTest = () => {

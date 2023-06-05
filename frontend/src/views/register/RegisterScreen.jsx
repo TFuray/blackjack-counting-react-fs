@@ -1,29 +1,31 @@
 import { useEffect, useState } from "react"
-import { Button, Form } from "react-bootstrap"
+import { Button, Col, Form, Row } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
-import FormConainter from "../components/utils/FormContainer"
-import Loader from "../components/utils/Loader"
-import { setCredentials } from "../slices/authSlice"
-import { useUpdateUserMutation } from "../slices/usersApiSlice"
+import { setCredentials } from "../../store/slices/auth/authSlice"
+import { useRegisterMutation } from "../../store/slices/users/usersApiSlice"
+import FormConainter from "../../utils/FormContainer"
+import Loader from "../../utils/Loader"
 
-const ProfileScreen = () => {
+const RegisterScreen = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
 
+  const navigate = useNavigate()
   const dispatch = useDispatch()
+
+  const [register, { isLoading }] = useRegisterMutation()
 
   const { userInfo } = useSelector((state) => state.auth)
 
-  const [updateProfile, { isLoading }] = useUpdateUserMutation()
-
   useEffect(() => {
-    setName(userInfo.name)
-    setEmail(userInfo.email)
-  }, [userInfo.setName, userInfo.setEmail])
+    if (userInfo) {
+      navigate("/")
+    }
+  }, [navigate, userInfo])
 
   const submitHandler = async (e) => {
     e.preventDefault()
@@ -31,14 +33,9 @@ const ProfileScreen = () => {
       toast.error("Passwords do not match")
     } else {
       try {
-        const res = await updateProfile({
-          _id: userInfo._id,
-          name,
-          email,
-          password,
-        }).unwrap()
-        dispatch(setCredentials({...res}))
-        toast.success('Profile Updated')
+        const res = await register({ name, email, password }).unwrap()
+        dispatch(setCredentials({ ...res }))
+        navigate("/")
       } catch (err) {
         toast.error(err?.data?.message || err.error)
       }
@@ -47,7 +44,7 @@ const ProfileScreen = () => {
 
   return (
     <FormConainter>
-      <h1>Update Profile</h1>
+      <h1>Sign Up</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group
           className="my-2"
@@ -112,14 +109,16 @@ const ProfileScreen = () => {
           variant="primary"
           className="mt-3"
         >
-          Update
+          Sign Up
         </Button>
-        <Button variant="secondary"
-       className="mt-3 ml-8"
 
-        >Cancel</Button>
+        <Row className="py-3">
+          <Col>
+            Already Have an Account? <Link to="/login">Login</Link>
+          </Col>
+        </Row>
       </Form>
     </FormConainter>
   )
 }
-export default ProfileScreen
+export default RegisterScreen

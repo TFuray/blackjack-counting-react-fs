@@ -1,5 +1,5 @@
-import HitButton from "./HitButton"
-import StayButton from "./StayButton"
+import HitButton from "../../../../components/cardGame/HitButton"
+import StayButton from "../../../../components/cardGame/StayButton"
 
 const ButtonBar = () => {
   return (

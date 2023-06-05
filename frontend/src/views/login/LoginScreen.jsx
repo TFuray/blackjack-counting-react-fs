@@ -2,11 +2,11 @@ import { useEffect, useState } from "react"
 import { Button, Col, Form, Row } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
-import FormConainter from "../components/utils/FormContainer"
-import { setCredentials } from "../slices/authSlice"
-import { useLoginMutation } from "../slices/usersApiSlice"
 import { toast } from "react-toastify"
-import Loader from "../components/utils/Loader"
+import { setCredentials } from "../../store/slices/auth/authSlice"
+import { useLoginMutation } from "../../store/slices/users/usersApiSlice"
+import FormConainter from "../../utils/FormContainer"
+import Loader from "../../utils/Loader"
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("")
@@ -68,7 +68,7 @@ const LoginScreen = () => {
           ></Form.Control>
         </Form.Group>
 
-          {isLoading && <Loader />}
+        {isLoading && <Loader />}
 
         <Button
           type="submit"

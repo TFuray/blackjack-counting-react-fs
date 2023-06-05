@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
-import Loader from "../utils/Loader"
-import { setDealerTurn } from "../../slices/playerSlice"
+import { setDealerTurn } from "../../store/slices/playerSlice"
+import Loader from "../../utils/Loader"
 
 const StayButton = () => {
   const dispatch = useDispatch()

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setPlayerTotal } from "../../slices/playerSlice"
-import Loader from "../utils/Loader"
-import TempClearBtn from "./TempClearBtn"
+import { setPlayerTotal } from "../../../store/slices/player/playerSlice"
+import Loader from "../../../utils/Loader"
+import TempClearBtn from "../buttons/TempClearBtn"
 
 const DisplayPlayerCards = () => {
   const { playerHand } = useSelector((state) => state.player)
   const { playerTotal } = useSelector((state) => state.player)
-  const { playerTurn } = useSelector((state) => state.player )
+  const { playerTurn } = useSelector((state) => state.player)
 
   if (playerHand) {
     return (
@@ -20,7 +20,9 @@ const DisplayPlayerCards = () => {
               </p>
             ) : (
               <div>
-                <p className="text-3xl font-bold text-red-600 drop-shadow-2xl font-outline">Bust: {playerTotal}</p>
+                <p className="text-3xl font-bold text-red-600 drop-shadow-2xl font-outline">
+                  Bust: {playerTotal}
+                </p>
                 <TempClearBtn />
               </div>
             )}

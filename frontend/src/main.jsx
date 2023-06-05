@@ -8,14 +8,14 @@ import {
   RouterProvider,
 } from "react-router-dom"
 import App from "./App.jsx"
-import PrivateRoute from "./components/utils/PrivateRoute.jsx"
 import "./index.css"
-import CardGameScreen from "./screens/CardGameScreen.jsx"
-import HomeScreen from "./screens/HomeScreen.jsx"
-import LoginScreen from "./screens/LoginScreen.jsx"
-import ProfileScreen from "./screens/ProfileScreen.jsx"
-import RegisterScreen from "./screens/Register.jsx"
-import store from "./store.js"
+import store from "./store/store.js"
+import PrivateRoute from "./utils/PrivateRoute.jsx"
+import CardGameScreen from "./views/cardGame/CardGameScreen.jsx"
+import HomeScreen from "./views/home/homePage/HomeScreen.jsx"
+import ProfileScreen from "./views/home/profilePage/ProfileScreen.jsx"
+import LoginScreen from "./views/login/LoginScreen.jsx"
+import RegisterScreen from "./views/register/RegisterScreen.jsx"
 
 const router = createBrowserRouter(
   createRoutesFromElements(

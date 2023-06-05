@@ -1,13 +1,19 @@
+import ButtonBar from "@components/cardGame/ButtonBar"
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import ButtonBar from "../components/cardGame/ButtonBar"
-import DealButton from "../components/cardGame/DealButton"
-import DisplayDealerCards from "../components/cardGame/DisplayDealerCards"
-import DisplayPlayerCards from "../components/cardGame/DisplayPlayerCards"
-import TempClearBtn from "../components/cardGame/TempClearBtn"
-import { apiSlice } from "../slices/apiSlice"
-import { useDrawOneMutation, useDrawOneQuery } from "../slices/cardsApiSlice"
-import { addCardToHand, setDealerTotal } from "../slices/dealerSlice"
+import { apiSlice } from "../../store/slices/api/apiSlice"
+import {
+  useDrawOneMutation,
+  useDrawOneQuery,
+} from "../../store/slices/api/cards/cardsApiSlice"
+import {
+  addCardToHand,
+  setDealerTotal,
+} from "../../store/slices/dealer/dealerSlice"
+import TempClearBtn from "./buttons/TempClearBtn"
+import DealButton from "./buttons/buttonBar/DealButton"
+import DisplayDealerCards from "./dealerHand/DisplayDealerCards"
+import DisplayPlayerCards from "./playerHand/DisplayPlayerCards"
 
 const CardGameScreen = () => {
   const { playerTotal } = useSelector((state) => state.player)
