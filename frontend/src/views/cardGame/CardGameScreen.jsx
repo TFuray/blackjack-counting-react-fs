@@ -8,6 +8,7 @@ import DisplayDealerCards from "@views/cardGame/dealerHand/DisplayDealerCards"
 import DisplayPlayerCards from "@views/cardGame/playerHand/DisplayPlayerCards"
 import { useDispatch, useSelector } from "react-redux"
 import { calcTotal } from "./utils/calcTotal/calcTotal"
+import NoDealtCards from "./utils/noDealtCards/NoDealtCards"
 
 const CardGameScreen = () => {
   const dispatch = useDispatch()
@@ -33,15 +34,18 @@ const CardGameScreen = () => {
 
   return (
     <>
-      <div className="rounded-full bg-green-800 w-5/6 h-128 py-24 shadow-2xl border-8 border-rose-900">
+      <div className="rounded-full bg-green-800 w-5/6 ml-5 h-128 py-24 shadow-2xl border-15 border-amber-900">
+        <NoDealtCards />
         <DisplayDealerCards />
+        <br />
         <br />
         <br />
         <DisplayPlayerCards />
       </div>
-      <DealButton />
-      <TempClearBtn />
-      <ButtonBar />
+      <br />
+      <div className="ml-5">
+        <ButtonBar />
+      </div>
     </>
   )
 }

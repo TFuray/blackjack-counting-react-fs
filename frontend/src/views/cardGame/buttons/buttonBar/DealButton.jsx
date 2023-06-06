@@ -32,14 +32,14 @@ const DealButton = () => {
 
   return (
     <>
-      <div className="bg-slate-700 w-36 flex justify-center rounded-full p-4 ">
+      {/* <div className="bg-slate-700 w-36 flex justify-center rounded-full p-4 "> */}
         <button
           onClick={handleClick}
           className="btn btn-accent"
         >
-          DealButton
+          Deal
         </button>
-      </div>
+      {/* </div> */}
     </>
   )
 }

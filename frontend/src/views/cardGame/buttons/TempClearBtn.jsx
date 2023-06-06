@@ -28,7 +28,9 @@ const TempClearBtn = () => {
         onClick={handleClick}
         className="btn btn-warning mr-3"
       >
-        Clear Table
+        Clear
+        <br/>
+        Table
       </button>
     </>
   )

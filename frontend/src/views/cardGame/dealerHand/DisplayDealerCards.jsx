@@ -2,9 +2,11 @@ import playingCardBack from "@assets/playingCardBack.svg"
 import { useSelector } from "react-redux"
 
 const DisplayDealerCards = () => {
+
   const { dealerHand } = useSelector((state) => state.dealer)
   const { dealerTotal } = useSelector((state) => state.dealer)
   const { playerTurn } = useSelector((state) => state.player)
+
 
   if (dealerHand) {
     return (
@@ -13,7 +15,7 @@ const DisplayDealerCards = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             <div className="col-span-1 md:col-span-2 justify-self-center">
               <p className="text-3xl font-bold text-white">
-                Total: {playerTurn ? dealerHand["0"]["value"] : dealerTotal}
+                Dealer Total: {playerTurn ? dealerHand["0"]["value"] : dealerTotal}
               </p>
             </div>
 
@@ -46,7 +48,7 @@ const DisplayDealerCards = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <div className="col-span-1 md:col-span-2 justify-self-center">
                 <p className="text-3xl font-bold text-white">
-                  Total: {dealerTotal}
+                  Dealer Total: {dealerTotal}
                 </p>
               </div>
               <div className="col-span-2 justify-self-center flex gap-2">
