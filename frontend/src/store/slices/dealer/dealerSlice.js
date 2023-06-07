@@ -5,6 +5,7 @@ const initialState = {
     ? JSON.parse(localStorage.getItem("dealerHand"))
     : null,
     dealerTotal: localStorage.getItem('dealerTotal')? JSON.parse(localStorage.getItem('dealerTotal')) : null,
+    dealerBust: localStorage.getItem('dealerBust')? JSON.parse(localStorage.getItem('dealerBust')) : false,
 }
 
 const dealerSlice = createSlice({

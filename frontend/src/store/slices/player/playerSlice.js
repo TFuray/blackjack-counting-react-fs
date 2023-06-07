@@ -10,6 +10,9 @@ const initialState = {
   playerTurn: localStorage.getItem("playerTurn")
     ? JSON.parse(localStorage.getItem("playerTurn"))
     : true,
+  playerBust: localStorage.getItem("playerBust")
+    ? JSON.parse(localStorage.getItem("playerBust"))
+    : false,
 }
 
 const playerSlice = createSlice({

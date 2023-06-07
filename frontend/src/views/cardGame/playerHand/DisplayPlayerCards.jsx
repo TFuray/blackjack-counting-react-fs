@@ -56,7 +56,6 @@ const DisplayPlayerCards = () => {
                 <p className="text-3xl font-bold text-red-600 drop-shadow-2xl font-outline">
                   Player Bust: {playerTotal}
                 </p>
-                <TempClearBtn />
               </div>
             )}
           </div>
