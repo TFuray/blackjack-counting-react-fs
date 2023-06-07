@@ -1,7 +1,6 @@
 import { apiSlice } from "@slices/api/apiSlice"
 import { useDrawOneQuery } from "@slices/api/cards/cardsApiSlice"
 import { addCardToHand, setDealerTotal } from "@slices/dealer/dealerSlice"
-import TempClearBtn from "@views/cardGame/buttons/TempClearBtn"
 import ButtonBar from "@views/cardGame/buttons/buttonBar/ButtonBar"
 import DealButton from "@views/cardGame/buttons/buttonBar/DealButton"
 import DisplayDealerCards from "@views/cardGame/dealerHand/DisplayDealerCards"

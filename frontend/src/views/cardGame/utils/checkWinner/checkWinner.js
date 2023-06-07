@@ -1,3 +1,4 @@
-export const checkWinner = (dealerTotal, playerTotal) => {
 
+export const checkWinner = (dealerTotal, playerTotal) => {
+  
 }
