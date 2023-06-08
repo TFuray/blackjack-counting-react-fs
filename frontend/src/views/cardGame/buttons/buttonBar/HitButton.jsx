@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { apiSlice } from "@store/slices/api/apiSlice"
 import { useDrawOneQuery } from "@store/slices/api/cards/cardsApiSlice"

@@ -7,7 +7,7 @@ import CheckBasicStrat from "./CheckBasicStrat"
 const ButtonBar = () => {
   return (
     <>
-      <nav className=" flex justify-around p-2 rounded-full w-128 border-2 bg-slate-700">
+      <div className=" join flex justify-around p-2 rounded-full w-128 border-2 bg-slate-700">
         <DealButton/>
         <HitButton />
         <StayButton />
@@ -22,8 +22,7 @@ const ButtonBar = () => {
         </button>
         <button className="btn flex bg-blue-600 text-white ">split</button>
         <TempClearBtn/>
-        <CheckBasicStrat/>
-      </nav>
+      </div>
     </>
   )
 }

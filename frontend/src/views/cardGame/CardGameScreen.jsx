@@ -20,7 +20,7 @@ const CardGameScreen = () => {
 
   const { data } = useDrawOneQuery()
 
-  const hitDealer = async () => {
+  const hitDealer =  () => {
     dispatch(addCardToHand(data.cards[0]))
     calcTotal(dealerHand, dispatch, setDealerTotal)
     dispatch(apiSlice.util.resetApiState())

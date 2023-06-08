@@ -16,6 +16,5 @@ export const convertFace = (hand) => {
       return array.push(Number(card.value))
     }
   })
-  console.log(array)
   return array
 }
