@@ -8,12 +8,14 @@ import DisplayPlayerCards from "@views/cardGame/playerHand/DisplayPlayerCards"
 import { useDispatch, useSelector } from "react-redux"
 import { calcTotal } from "./utils/calcTotal/calcTotal"
 import NoDealtCards from "./utils/noDealtCards/NoDealtCards"
+import CheckBasicStrat from "./buttons/buttonBar/CheckBasicStrat"
 
 const CardGameScreen = () => {
   const dispatch = useDispatch()
 
   const { dealerTotal } = useSelector((state) => state.dealer)
   const { dealerHand } = useSelector((state) => state.dealer)
+  const { playerHand } = useSelector((state) => state.player)
   const { playerTurn } = useSelector((state) => state.player)
 
   const { data } = useDrawOneQuery()
@@ -38,8 +40,11 @@ const CardGameScreen = () => {
         <DisplayDealerCards />
         <br />
         <br />
-        <br />
-        <DisplayPlayerCards />
+        <div className="flex flex-col justify-center">
+          <DisplayPlayerCards />
+          {playerHand && dealerHand ? <CheckBasicStrat /> : null
+}
+        </div>
       </div>
       <br />
       <div className="ml-5">
