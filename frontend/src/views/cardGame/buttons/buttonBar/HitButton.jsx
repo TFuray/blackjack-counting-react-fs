@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { apiSlice } from "@store/slices/api/apiSlice"
 import { useDrawOneQuery } from "@store/slices/api/cards/cardsApiSlice"
@@ -17,7 +16,10 @@ const HitButton = () => {
     if (isLoading) {
       return <Loader />
     } else if (isSuccess) {
-      return dispatch(addCardToHand(data.cards[0]))
+      return (
+        dispatch(addCardToHand(data.cards[0])) &&
+        dispatch(apiSlice.util.resetApiState())
+      )
     }
   }
 

@@ -1,7 +1,6 @@
-import { Badge, Container, Nav, NavDropdown, Navbar } from "react-bootstrap"
 import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa"
+import { Link  } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { LinkContainer } from "react-router-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { logout } from "../../store/slices/auth/authSlice"
 import { useLogoutMutation } from "../../store/slices/users/usersApiSlice"
@@ -26,51 +25,28 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar
-        bg="dark"
-        variant="dark"
-        expand="lg"
-        collapseOnSelect
-      >
-        <Container>
-          <LinkContainer to="/">
-            <Navbar.Brand>MERN Auth</Navbar.Brand>
-          </LinkContainer>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
-              {userInfo ? (
-                <>
-                  <NavDropdown
-                    title={userInfo.name}
-                    id="username"
-                  >
-                    <LinkContainer to="/profile">
-                      <NavDropdown.Item>Profile</NavDropdown.Item>
-                    </LinkContainer>
-                    <NavDropdown.Item onClick={logoutHandler}>
-                      Logout
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </>
-              ) : (
-                <>
-                  <LinkContainer to="/login">
-                    <Nav.Link>
-                      <FaSignInAlt /> Sign In
-                    </Nav.Link>
-                  </LinkContainer>
-                  <LinkContainer to="/register">
-                    <Nav.Link>
-                      <FaSignOutAlt /> Sign Up
-                    </Nav.Link>
-                  </LinkContainer>
-                </>
-              )}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+      <div className="navbar bg-base-300">
+        <div className="flex-1">
+          <a className="btn btn-ghost normal-case text-xl">Black-Jack Trainer</a>
+        </div>
+        <div className="flex-none">
+          <ul className="menu menu-horizontal px-1">
+            <li>
+              <details>
+                <summary>{userInfo.name}</summary>
+                <ul className="p-2 bg-base-100">
+                  <li>
+                    <a>Link 1</a>
+                  </li>
+                  <li>
+                    <a>Link 2</a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </div>
+      </div>
     </header>
   )
 }

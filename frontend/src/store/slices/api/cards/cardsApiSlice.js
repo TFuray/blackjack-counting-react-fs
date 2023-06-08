@@ -24,6 +24,7 @@ export const cardsApiSlice = apiSlice.injectEndpoints({
 
 export const {
   useShuffleCardsQuery,
+  useLazyShuffleCardsQuery,
   useDealHandQuery,
   useDrawOneQuery,
   useDrawOneMutation,

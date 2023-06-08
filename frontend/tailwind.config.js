@@ -4,7 +4,15 @@ export default {
   theme: {
     extend: {
       height: {
-        '128': '40rem'
+        '128': '40rem',
+        '100': '32rem'
+      },
+      borderWidth: {
+        '15': '15px'
+      },
+      width: {
+        '128': '40rem',
+        '100': '32rem'
       }
     },
   },

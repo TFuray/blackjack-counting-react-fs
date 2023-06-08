@@ -16,6 +16,7 @@ import HomeScreen from "./views/home/HomeScreen.jsx"
 import LoginScreen from "./views/login/LoginScreen.jsx"
 import ProfileScreen from "./views/profile/ProfileScreen.jsx"
 import RegisterScreen from "./views/register/RegisterScreen.jsx"
+import CountTrainer from "@views/countTrainer/CountTrainer.jsx"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -49,6 +50,10 @@ const router = createBrowserRouter(
         <Route
           path="/cardGame"
           element={<CardGameScreen />}
+        />
+        <Route
+          path="/countTrainer"
+          element={<CountTrainer/>}
         />
       </Route>
     </Route>
