@@ -28,15 +28,7 @@
   <h3 align="center">Card Counting Trainer</h3>
 
   <p align="center">
-    Practice basic strategy and keeping track of the count using these tools and practices
-    <br />
- 
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/TFuray/blackjack-counting-react-fs/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/TFuray/blackjack-counting-react-fs/issues">Request Feature</a>
+    Practice basic strategy and keeping track of the count using these tools and practice
   </p>
 </div>
 
