@@ -12,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
+    "blackjack-strategy": "^1.4.0",
     "daisyui": "^3.0.3",
     "path": "^0.12.7",
     "react": "^18.2.0",
