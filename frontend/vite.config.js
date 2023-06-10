@@ -14,7 +14,7 @@ export default defineConfig({
       "@utils": path.resolve(__dirname, "./src/utils"),
       "@views": path.resolve(__dirname, "./src/views"),
       "@services": path.resolve(__dirname, "./src/services"),
-      "@slices": path.resolve(__dirname, "./src/store/slices/")
+      "@slices": path.resolve(__dirname, "./src/store/slices/"),
     },
   },
   server: {
@@ -25,5 +25,10 @@ export default defineConfig({
         changeOrigin: true,
       },
     },
+  },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./tests/setup.js",
   },
 })
