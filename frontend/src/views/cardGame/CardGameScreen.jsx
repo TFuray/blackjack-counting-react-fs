@@ -6,9 +6,9 @@ import DealButton from "@views/cardGame/buttons/buttonBar/DealButton"
 import DisplayDealerCards from "@views/cardGame/dealerHand/DisplayDealerCards"
 import DisplayPlayerCards from "@views/cardGame/playerHand/DisplayPlayerCards"
 import { useDispatch, useSelector } from "react-redux"
+import CheckBasicStrat from "./buttons/buttonBar/CheckBasicStrat"
 import { calcTotal } from "./utils/calcTotal/calcTotal"
 import NoDealtCards from "./utils/noDealtCards/NoDealtCards"
-import CheckBasicStrat from "./buttons/buttonBar/CheckBasicStrat"
 
 const CardGameScreen = () => {
   const dispatch = useDispatch()
@@ -20,7 +20,7 @@ const CardGameScreen = () => {
 
   const { data } = useDrawOneQuery()
 
-  const hitDealer =  () => {
+  const hitDealer = () => {
     dispatch(addCardToHand(data.cards[0]))
     calcTotal(dealerHand, dispatch, setDealerTotal)
     dispatch(apiSlice.util.resetApiState())
@@ -41,9 +41,13 @@ const CardGameScreen = () => {
         <br />
         <br />
         <div className="flex flex-col justify-center">
-          <DisplayPlayerCards />
-          {playerHand && dealerHand ? <CheckBasicStrat /> : null
-}
+          {playerHand && dealerHand ? (
+            <>
+              <CheckBasicStrat />
+
+              <DisplayPlayerCards />
+            </>
+          ) : null}
         </div>
       </div>
       <br />

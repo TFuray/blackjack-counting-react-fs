@@ -1,14 +1,14 @@
 import HitButton from "@views/cardGame/buttons/buttonBar/HitButton"
 import StayButton from "@views/cardGame/buttons/buttonBar/StayButton"
 import TempClearBtn from "../TempClearBtn"
-import DealButton from "./DealButton"
 import CheckBasicStrat from "./CheckBasicStrat"
+import DealButton from "./DealButton"
 
 const ButtonBar = () => {
   return (
     <>
       <div className=" join flex justify-around p-2 rounded-full w-128 border-2 bg-slate-700">
-        <DealButton/>
+        {/* <DealButton/> */}
         <HitButton />
         <StayButton />
         {/* <button
@@ -21,7 +21,7 @@ const ButtonBar = () => {
           double <br /> down
         </button>
         <button className="btn flex bg-blue-600 text-white ">split</button>
-        <TempClearBtn/>
+        <TempClearBtn />
       </div>
     </>
   )

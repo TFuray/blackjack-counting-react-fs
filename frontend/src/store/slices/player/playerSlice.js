@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-  playerHand: localStorage.getItem("playerHand")
-    ? JSON.parse(localStorage.getItem("playerHand"))
-    : null,
   playerTotal: localStorage.getItem("playerTotal")
     ? JSON.parse(localStorage.getItem("playerTotal"))
+    : null,
+  playerHand: localStorage.getItem("playerHand")
+    ? JSON.parse(localStorage.getItem("playerHand"))
     : null,
   playerTurn: localStorage.getItem("playerTurn")
     ? JSON.parse(localStorage.getItem("playerTurn"))

@@ -27,7 +27,7 @@ const Header = () => {
     <header>
       <div className="navbar bg-base-300">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">Black-Jack Trainer</a>
+          <a href="/" className="btn btn-ghost normal-case text-xl">Black-Jack Trainer</a>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
@@ -36,11 +36,9 @@ const Header = () => {
                 <summary>{userInfo.name}</summary>
                 <ul className="p-2 bg-base-100">
                   <li>
-                    <a>Link 1</a>
+                    <Link to='/profile'><span>Profile</span></Link>
                   </li>
-                  <li>
-                    <a>Link 2</a>
-                  </li>
+
                 </ul>
               </details>
             </li>
